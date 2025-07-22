@@ -1,0 +1,155 @@
+.App {
+  text-align: center;
+  background: #f5f5dc;
+  min-height: 100vh;
+  padding-bottom: 40px;
+}
+
+.App-logo {
+  height: 120px;
+  margin-top: 20px;
+}
+
+h2 {
+  color: #4b2e05;
+  margin-bottom: 0.5em;
+}
+
+button {
+  background: #8b5c2a;
+  color: #fffbe7;
+  border: none;
+  border-radius: 8px;
+  padding: 12px 28px;
+  margin: 10px 5px;
+  font-size: 1.1em;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.1s;
+  box-shadow: 0 2px 6px #0002;
+}
+
+button:disabled {
+  background: #b8a07a;
+  color: #eee;
+  cursor: not-allowed;
+  transform: none;
+}
+
+button:not(:disabled):hover {
+  background: #a06b2b;
+  transform: scale(1.05);
+}
+
+h3 {
+  margin-top: 2em;
+  color: #6b3f13;
+}
+
+p {
+  font-size: 1.2em;
+  color: #3d2b1f;
+}
+
+.shop-section, .upgrade-section, .house-section {
+  background: #fffbe7;
+  border: 2px solid #d2b48c;
+  border-radius: 12px;
+  margin: 20px auto;
+  max-width: 350px;
+  padding: 18px 0 10px 0;
+  box-shadow: 0 2px 12px #0001;
+}
+
+.shop-section {
+  margin-bottom: 10px;
+}
+
+.upgrade-section {
+  margin-top: 10px;
+}
+
+/* House display */
+.house-section {
+  background: #fffbe7;
+  border: 2px solid #d2b48c;
+  border-radius: 12px;
+  margin: 20px auto;
+  max-width: 350px;
+  padding: 18px 0 10px 0;
+  box-shadow: 0 2px 12px #0001;
+}
+
+.house-section h4 {
+  margin: 12px 0 6px 0;
+  color: #7a4a13;
+}
+
+.house-section label {
+  font-size: 1.1em;
+  color: #4b2e05;
+}
+
+.house-section input[type="color"] {
+  margin-left: 8px;
+  vertical-align: middle;
+  border-radius: 6px;
+  border: 1px solid #d2b48c;
+  box-shadow: 0 1px 4px #0001;
+}
+
+.house-section strong {
+  color: #7a4a13;
+}
+
+.house-section span[role="img"] {
+  filter: drop-shadow(0 1px 2px #0002);
+}
+
+@media (max-width: 600px) {
+  .App-logo {
+    height: 80px;
+  }
+  button {
+    padding: 10px 16px;
+    font-size: 1em;
+  }
+}
+
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
