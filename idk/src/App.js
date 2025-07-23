@@ -17,7 +17,7 @@ const initialBuildings = [
   { id: 1, name: 'House', destroyed: false },
   { id: 2, name: 'School', destroyed: false },
   { id: 3, name: 'Shop', destroyed: false },
-];
+]
 
 function App() {
   const [weather, setWeather] = useState(weatherTypes[0]);
