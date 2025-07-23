@@ -1,0 +1,190 @@
+.App {
+  text-align: center;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #e0eafc 0%, #cfdef3 100%);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.weather-display {
+  font-size: 3rem;
+  margin: 20px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.weather-emoji {
+  font-size: 5rem;
+  margin-bottom: 10px;
+}
+
+button {
+  padding: 12px 32px;
+  font-size: 1.2rem;
+  border-radius: 8px;
+  border: none;
+  background: #0077ff;
+  color: white;
+  cursor: pointer;
+  transition: background 0.2s;
+  margin-top: 20px;
+}
+
+button:hover {
+  background: #005fcc;
+}
+
+.weather-hurricane {
+  background: linear-gradient(135deg, #232526 0%, #414345 100%);
+  color: #fff;
+}
+
+.hurricane-animation {
+  position: relative;
+  width: 140px;
+  height: 140px;
+  margin: 40px auto 0;
+  filter: drop-shadow(0 0 16px #0077ff);
+}
+
+.eye {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 28px;
+  height: 28px;
+  background: radial-gradient(circle at 60% 40%, #fff 60%, #bbb 100%);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+  box-shadow: 0 0 16px #fff, 0 0 32px #0077ff inset;
+}
+
+.swirl {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  border-radius: 50%;
+  border: 8px solid rgba(0,123,255,0.3);
+  animation: swirl-spin 1.2s linear infinite;
+  box-shadow: 0 0 24px #0077ff inset;
+}
+
+.swirl1 {
+  width: 90px;
+  height: 90px;
+  margin-left: -45px;
+  margin-top: -45px;
+  border-color: #00c3ff;
+  animation-delay: 0s;
+}
+
+.swirl2 {
+  width: 110px;
+  height: 110px;
+  margin-left: -55px;
+  margin-top: -55px;
+  border-color: #fff;
+  animation-delay: 0.4s;
+}
+
+.swirl3 {
+  width: 130px;
+  height: 130px;
+  margin-left: -65px;
+  margin-top: -65px;
+  border-color: #0077ff;
+  animation-delay: 0.8s;
+}
+
+/* Debris animation */
+.debris {
+  position: absolute;
+  width: 16px;
+  height: 8px;
+  background: #444;
+  border-radius: 4px;
+  opacity: 0.8;
+  z-index: 3;
+  animation: debris-fly 1.5s infinite linear;
+}
+
+.debris1 { top: 30%; left: 60%; background: #a0522d; animation-delay: 0s; }
+.debris2 { top: 70%; left: 40%; background: #808080; animation-delay: 0.5s; }
+.debris3 { top: 50%; left: 80%; background: #b22222; animation-delay: 1s; }
+.debris4 { top: 80%; left: 20%; background: #696969; animation-delay: 1.2s; }
+
+@keyframes debris-fly {
+  0% { transform: rotate(0deg) scale(1) translateY(0);}
+  50% { transform: rotate(30deg) scale(1.2) translateY(-20px);}
+  100% { transform: rotate(-15deg) scale(1) translateY(0);}
+}
+
+.buildings {
+  margin: 20px 0;
+}
+.buildings-row {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+}
+.building {
+  width: 60px;
+  height: 60px;
+  background: #ffe082;
+  border: 2px solid #bdb76b;
+  border-radius: 8px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  font-weight: bold;
+  font-size: 0.9rem;
+  box-shadow: 0 2px 8px #aaa;
+  transition: background 0.3s, transform 0.3s;
+}
+.building.destroyed {
+  background: #888;
+  color: #fff;
+  text-decoration: line-through;
+  transform: rotate(-8deg) scale(0.9);
+  border-color: #333;
+  box-shadow: 0 0 16px #b22222;
+}
