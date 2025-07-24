@@ -1,0 +1,75 @@
+.App {
+  text-align: center;
+  font-family: 'Segoe UI', 'Roboto', 'Arial', sans-serif;
+  background: linear-gradient(135deg, #e0f7fa 0%, #fffde4 100%);
+  min-height: 100vh;
+}
+
+h1 {
+  font-size: 2.5rem;
+  margin-bottom: 0.5em;
+  letter-spacing: 2px;
+  color: #1565c0;
+  text-shadow: 1px 2px 8px #b3e5fc;
+}
+
+button {
+  background: linear-gradient(90deg, #1565c0 0%, #43cea2 100%);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(21, 101, 192, 0.15);
+  transition: background 0.2s, transform 0.1s;
+  font-weight: bold;
+}
+button:hover:enabled {
+  background: linear-gradient(90deg, #43cea2 0%, #1565c0 100%);
+  transform: scale(1.05);
+}
+button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+svg {
+  background: linear-gradient(180deg, #b3e5fc 0%, #fffde4 100%);
+  border-radius: 8px;
+  box-shadow: 0 4px 24px rgba(21, 101, 192, 0.08);
+}
+
+/* Shot-put animation effect */
+circle {
+  filter: drop-shadow(0 4px 12px #3338);
+  transition: fill 0.2s;
+}
+
+circle[fill="#888"] {
+  fill: url(#shotput-gradient);
+}
+
+/* Message styling */
+.App .hit-message {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #43cea2;
+  text-shadow: 0 2px 8px #1565c033;
+  animation: pop 0.5s;
+}
+.App .miss-message {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #e53935;
+  text-shadow: 0 2px 8px #b71c1c33;
+  animation: shake 0.5s;
+}
+
+@keyframes pop {
+  0% { transform: scale(0.7); opacity: 0; }
+  60% { transform: scale(1.2); opacity: 1; }
+  100% { transform: scale(1); }
+}
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  20%, 60% { transform: translateX(-8px); }
+  40%, 80% { transform: translateX(8px); }
+}
