@@ -1,0 +1,33 @@
+.App {
+  text-align: center;
+  background-color: #111;
+  min-height: 100vh;
+  color: white;
+  font-family: 'Courier New', monospace;
+}
+
+.game-container {
+  padding: 20px;
+}
+
+.game-container h1 {
+  color: #00aaff;
+  font-size: 2.5em;
+  margin-bottom: 10px;
+  text-shadow: 0 0 10px #00aaff;
+}
+
+.controls {
+  margin-bottom: 20px;
+}
+
+.controls p {
+  color: #ccc;
+  font-size: 14px;
+  margin: 5px 0;
+}
+
+canvas {
+  border: 2px solid #333 !important;
+  box-shadow: 0 0 20px rgba(0, 170, 255, 0.3);
+}
