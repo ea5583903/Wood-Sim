@@ -1,0 +1,413 @@
+/* Instruction Manual Styles */
+.instruction-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 2000;
+  padding: 20px;
+}
+
+.instruction-modal {
+  background: white;
+  border-radius: 16px;
+  max-width: 900px;
+  max-height: 90vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+}
+
+.instruction-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 30px;
+  border-bottom: 2px solid #e5e7eb;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  border-radius: 16px 16px 0 0;
+}
+
+.instruction-header h2 {
+  margin: 0;
+  font-size: 24px;
+  font-weight: 700;
+}
+
+.close-btn {
+  background: rgba(255, 255, 255, 0.2);
+  border: none;
+  color: white;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  font-size: 20px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.2s;
+}
+
+.close-btn:hover {
+  background: rgba(255, 255, 255, 0.3);
+}
+
+.instruction-content {
+  display: flex;
+  flex: 1;
+  min-height: 0;
+}
+
+.instruction-tabs {
+  background: #f8fafc;
+  border-right: 1px solid #e5e7eb;
+  display: flex;
+  flex-direction: column;
+  min-width: 160px;
+  padding: 20px 0;
+}
+
+.tab-btn {
+  background: none;
+  border: none;
+  padding: 12px 20px;
+  text-align: left;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  transition: all 0.2s;
+  font-size: 14px;
+  font-weight: 500;
+  color: #6b7280;
+}
+
+.tab-btn:hover {
+  background: #e5e7eb;
+  color: #374151;
+}
+
+.tab-btn.active {
+  background: #3b82f6;
+  color: white;
+  position: relative;
+}
+
+.tab-btn.active::after {
+  content: '';
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 0;
+  height: 0;
+  border-left: 8px solid #3b82f6;
+  border-top: 8px solid transparent;
+  border-bottom: 8px solid transparent;
+}
+
+.tab-icon {
+  font-size: 16px;
+}
+
+.instruction-body {
+  flex: 1;
+  padding: 30px;
+  overflow-y: auto;
+}
+
+.tab-content {
+  max-width: 100%;
+}
+
+.tab-content h3 {
+  margin: 0 0 20px 0;
+  color: #374151;
+  font-size: 24px;
+  padding-bottom: 10px;
+  border-bottom: 2px solid #e5e7eb;
+}
+
+.tab-content h4 {
+  margin: 25px 0 15px 0;
+  color: #1f2937;
+  font-size: 18px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.tab-content h5 {
+  margin: 15px 0 10px 0;
+  color: #374151;
+  font-size: 16px;
+}
+
+.tab-content p {
+  color: #6b7280;
+  line-height: 1.6;
+  margin-bottom: 15px;
+}
+
+.tab-content ul {
+  color: #6b7280;
+  line-height: 1.6;
+  margin: 10px 0;
+  padding-left: 20px;
+}
+
+.tab-content li {
+  margin-bottom: 8px;
+}
+
+.info-section {
+  background: #f8fafc;
+  padding: 20px;
+  border-radius: 12px;
+  margin: 20px 0;
+  border-left: 4px solid #3b82f6;
+}
+
+.info-section h4 {
+  margin-top: 0;
+  color: #1e40af;
+}
+
+/* Strategy Sections */
+.strategy-section {
+  margin: 20px 0;
+}
+
+.strategy-box {
+  background: #f8fafc;
+  padding: 20px;
+  border-radius: 12px;
+  border-left: 4px solid;
+}
+
+.buy-strategy {
+  border-left-color: #059669;
+  background: #f0fdf4;
+}
+
+.sell-strategy {
+  border-left-color: #dc2626;
+  background: #fef2f2;
+}
+
+.strategy-box p {
+  margin: 0 0 15px 0;
+  font-weight: 600;
+  color: #374151;
+}
+
+/* Goods Overview */
+.goods-overview {
+  margin: 20px 0;
+}
+
+.good-card {
+  background: white;
+  border: 2px solid;
+  border-radius: 12px;
+  padding: 20px;
+  margin: 15px 0;
+}
+
+.good-card.wheat {
+  border-color: #059669;
+  background: linear-gradient(135deg, #f0fdf4 0%, #f9fdf9 100%);
+}
+
+.good-card.copper {
+  border-color: #d97706;
+  background: linear-gradient(135deg, #fef7ed 0%, #fffdf7 100%);
+}
+
+.good-card.chips {
+  border-color: #7c3aed;
+  background: linear-gradient(135deg, #faf5ff 0%, #fefcff 100%);
+}
+
+.good-card h5 {
+  margin: 0 0 15px 0;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.good-card ul {
+  margin: 0;
+}
+
+.good-card li {
+  margin-bottom: 6px;
+}
+
+/* Trade Example */
+.trade-example {
+  margin: 30px 0;
+}
+
+.example-box {
+  background: #eff6ff;
+  border: 2px solid #3b82f6;
+  border-radius: 12px;
+  padding: 20px;
+}
+
+.example-box p {
+  margin: 0 0 15px 0;
+  font-weight: 600;
+  color: #1e40af;
+}
+
+.example-box em {
+  color: #dc2626;
+  font-weight: 600;
+  font-style: normal;
+}
+
+/* Tips Sections */
+.tips-section {
+  background: white;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  padding: 20px;
+  margin: 20px 0;
+}
+
+.tips-section h4 {
+  margin-top: 0;
+  color: #1f2937;
+  border-bottom: 1px solid #e5e7eb;
+  padding-bottom: 10px;
+}
+
+/* Success Metrics */
+.success-metrics {
+  margin: 30px 0;
+}
+
+.metrics-box {
+  background: linear-gradient(135deg, #f0fdf4 0%, #f9fdf9 100%);
+  border: 2px solid #059669;
+  border-radius: 12px;
+  padding: 20px;
+}
+
+.metrics-box p {
+  margin: 0 0 15px 0;
+  font-weight: 600;
+  color: #065f46;
+}
+
+.metrics-box ul {
+  margin: 0;
+  color: #047857;
+}
+
+/* Text Formatting */
+strong {
+  color: #374151;
+  font-weight: 600;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .instruction-overlay {
+    padding: 10px;
+  }
+  
+  .instruction-modal {
+    max-height: 95vh;
+  }
+  
+  .instruction-content {
+    flex-direction: column;
+  }
+  
+  .instruction-tabs {
+    flex-direction: row;
+    overflow-x: auto;
+    border-right: none;
+    border-bottom: 1px solid #e5e7eb;
+    padding: 10px 0;
+    min-width: auto;
+  }
+  
+  .tab-btn {
+    white-space: nowrap;
+    padding: 10px 15px;
+    min-width: 120px;
+  }
+  
+  .tab-btn.active::after {
+    display: none;
+  }
+  
+  .instruction-body {
+    padding: 20px;
+  }
+  
+  .instruction-header {
+    padding: 15px 20px;
+  }
+  
+  .instruction-header h2 {
+    font-size: 20px;
+  }
+  
+  .close-btn {
+    width: 35px;
+    height: 35px;
+    font-size: 18px;
+  }
+}
+
+@media (max-width: 480px) {
+  .tab-content h3 {
+    font-size: 20px;
+  }
+  
+  .tab-content h4 {
+    font-size: 16px;
+  }
+  
+  .instruction-body {
+    padding: 15px;
+  }
+  
+  .info-section,
+  .strategy-box,
+  .good-card,
+  .tips-section {
+    padding: 15px;
+  }
+}
+
+/* Scrollbar for instruction body */
+.instruction-body::-webkit-scrollbar {
+  width: 8px;
+}
+
+.instruction-body::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 4px;
+}
+
+.instruction-body::-webkit-scrollbar-thumb {
+  background: #c1c1c1;
+  border-radius: 4px;
+}
+
+.instruction-body::-webkit-scrollbar-thumb:hover {
+  background: #a8a8a8;
+}
