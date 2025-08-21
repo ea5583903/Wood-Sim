@@ -68,7 +68,7 @@ export const authOptions: NextAuthOptions = {
         session.user.id = token.sub!
         session.user.role = token.role as string
         session.user.organizationId = token.organizationId as string
-        session.user.organization = token.organization as any
+        session.user.organization = token.organization
       }
       return session
     }
