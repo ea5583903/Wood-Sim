@@ -5,13 +5,16 @@ import App from './App.jsx'
 
 describe('App Component', () => {
   let windowOpenSpy
+  let alertSpy
 
   beforeEach(() => {
     windowOpenSpy = vi.spyOn(window, 'open').mockImplementation(() => {})
+    alertSpy = vi.spyOn(window, 'alert').mockImplementation(() => {})
   })
 
   afterEach(() => {
     windowOpenSpy.mockRestore()
+    alertSpy.mockRestore()
   })
 
   it('renders the main heading', () => {
@@ -109,9 +112,6 @@ describe('App Component', () => {
     }
     Object.assign(navigator, { clipboard: mockClipboard })
     
-    // Mock window.alert
-    const alertSpy = vi.spyOn(window, 'alert').mockImplementation(() => {})
-    
     render(<App />)
     
     const copyButtons = screen.getAllByText('📋 Copy Command')
@@ -119,8 +119,57 @@ describe('App Component', () => {
     
     expect(mockClipboard.writeText).toHaveBeenCalledWith('cd ../Black_jack && PORT=3001 npm start')
     expect(alertSpy).toHaveBeenCalled()
+  })
+
+  it('shows fallback alert when window.open fails', () => {
+    // Mock window.open to return null (popup blocked)
+    windowOpenSpy.mockImplementation(() => null)
     
-    alertSpy.mockRestore()
+    render(<App />)
+    
+    const playButtons = screen.getAllByText('🚀 Play Game')
+    fireEvent.click(playButtons[0])
+    
+    expect(alertSpy).toHaveBeenCalledWith(
+      expect.stringContaining('🎮 To play Blackjack & Go Fish:')
+    )
+  })
+
+  it('handles clipboard API not available gracefully', () => {
+    // Mock navigator.clipboard as undefined
+    Object.defineProperty(navigator, 'clipboard', {
+      value: undefined,
+      writable: true
+    })
+    
+    render(<App />)
+    
+    const copyButtons = screen.getAllByText('📋 Copy Command')
+    fireEvent.click(copyButtons[0])
+    
+    expect(alertSpy).toHaveBeenCalledWith(
+      expect.stringContaining('💡 Run this command to start the game:')
+    )
+  })
+
+  it('renders proper port numbers for each game', () => {
+    render(<App />)
+    
+    const gameCards = document.querySelectorAll('.game-card')
+    expect(gameCards).toHaveLength(9)
+    
+    // Check that each game has unique port assignment
+    const playButtons = screen.getAllByText('🚀 Play Game')
+    
+    // Test first few games have correct ports
+    fireEvent.click(playButtons[0]) // Blackjack - port 3001
+    expect(windowOpenSpy).toHaveBeenLastCalledWith('http://localhost:3001', '_blank')
+    
+    fireEvent.click(playButtons[1]) // Pong - port 3002  
+    expect(windowOpenSpy).toHaveBeenLastCalledWith('http://localhost:3002', '_blank')
+    
+    fireEvent.click(playButtons[2]) // Doughnut - port 3003
+    expect(windowOpenSpy).toHaveBeenLastCalledWith('http://localhost:3003', '_blank')
   })
 
   it('has correct CSS classes applied', () => {
