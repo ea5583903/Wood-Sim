@@ -1,7 +1,7 @@
 'use client'
 
 import { useState } from 'react'
-import { Save, Download, ArrowLeft, Plus } from 'lucide-react'
+import { Save, Download, ArrowLeft } from 'lucide-react'
 import Link from 'next/link'
 
 interface Cell {
@@ -35,8 +35,7 @@ export default function ExcelPage() {
       if (expression.includes('SUM(')) {
         const match = expression.match(/SUM\(([A-Z]+\d+):([A-Z]+\d+)\)/)
         if (match) {
-          const [, start, end] = match
-          let sum = 0
+          const sum = 0
           return sum.toString()
         }
       }

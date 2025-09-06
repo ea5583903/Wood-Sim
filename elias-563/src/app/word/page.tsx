@@ -5,11 +5,13 @@ import { Bold, Italic, Underline, AlignLeft, AlignCenter, AlignRight, Save, Down
 import Link from 'next/link'
 
 export default function WordPage() {
-  const [document, setDocument] = useState('Start typing your document here...')
+  const [documentContent, setDocumentContent] = useState('Start typing your document here...')
   const [title, setTitle] = useState('Untitled Document')
 
   const formatText = (command: string) => {
-    document.execCommand(command, false)
+    if (typeof window !== 'undefined') {
+      document.execCommand(command, false)
+    }
   }
 
   return (
@@ -99,8 +101,8 @@ export default function WordPage() {
               suppressContentEditableWarning
               className="min-h-[600px] outline-none text-gray-900 leading-relaxed"
               style={{ fontFamily: 'system-ui, -apple-system, sans-serif', fontSize: '16px', lineHeight: '1.6' }}
-              dangerouslySetInnerHTML={{ __html: document }}
-              onInput={(e) => setDocument(e.currentTarget.innerHTML)}
+              dangerouslySetInnerHTML={{ __html: documentContent }}
+              onInput={(e) => setDocumentContent(e.currentTarget.innerHTML)}
             />
           </div>
         </div>
